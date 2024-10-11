@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Ground Floor",
+    "description": "Aircondition High Street Retail",
+    "additionalInfo": "Drive through 1,2,3",
+    "price": "1,45,500 lakhs*"
+  },
+  {
+    "title": "First Floor High Street",
+    "description": "Retail",
+    "additionalInfo": "Food Court",
+    "price": "1,21,500 lakhs*"
+  },
+  {
+    "title": "Second Floor",
+    "description": "Restaurants",
+    "additionalInfo": "Restaurants - Terrace Area",
+    "price": "9,7500 lakhs*"
+  }
+]
