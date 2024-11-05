@@ -4,12 +4,12 @@ import React from "react";
 
 // Replace this with your actual Google Form URL
 const GOOGLE_FORM_ACTION_URL =
-  "https://docs.google.com/forms/u/0/d/e/1FAIpQLSf_Bebxm5iYlYzB_PFAC_He-ejiFTCMLNcYdKZYsP15-Ivpdg/formResponse";
+  "https://docs.google.com/forms/u/1/d/e/1FAIpQLSfza5Oi6GhQfTJpfWCX_7AmDrZqJu6r2E0gPLc15Q9z9qy0YA/formResponse";
 
 // Replace these entry IDs with your actual form field IDs from the pre-filled URL
-const GOOGLE_FORM_ENTRY_NAME = "entry.929645681";
-const GOOGLE_FORM_ENTRY_PHONE = "entry.1363093305";
-const GOOGLE_FORM_ENTRY_BUDGET = "entry.737135006";
+const GOOGLE_FORM_ENTRY_NAME = "entry.372664377";
+const GOOGLE_FORM_ENTRY_PHONE = "entry.39876554";
+const GOOGLE_FORM_ENTRY_BUDGET = "entry.597738789";
 
 const PopupContactForm = ({ onClose }) => {
   const [formData, setFormData] = React.useState({

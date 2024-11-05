@@ -118,15 +118,15 @@ const Home = () => {
       {/* Sticky Call Us Button with Image */}
       <div className="fixed top-[10rem] right-[0.5rem] z-50 flex items-center">
         <a
-          href="tel:+1234567890"
-          className="flex items-center"
+          href="tel:+91 8920215863"
+          className="flex items-center group"
         >
           <img
             src={caller}
             alt="Call Us"
-            className="w-16 h-16 rounded-full shadow-md mr-2"
+            className="w-10 h-10 md:w-14 md:h-14 rounded-full shadow-md mr-2"
           />
-          <span className="bg-[#4CAF50] text-white py-2 px-4 rounded-xl hover:bg-[#45a049] transition-colors duration-300">
+          <span className="hidden group-hover:block bg-black text-white py-2 px-4 md:py-3 md:px-6 rounded-xl transition-all duration-300">
             +91 8920215863
           </span>
         </a>

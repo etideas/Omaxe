@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import contact from "../../assets/contactus.jpg";
 
 const ContactUs = () => {
-  const [formData, setFormData] = useState({ Name: '', Phno: '', Budget: '' });
-  const [status, setStatus] = useState({ loading: false, message: '', type: '' });
+  const [formData, setFormData] = useState({ Name: "", Phno: "", Budget: "" });
+  const [status, setStatus] = useState({
+    loading: false,
+    message: "",
+    type: "",
+  });
 
   // Google Form URL and field entry IDs
   const googleFormActionURL =
-    'https://docs.google.com/forms/u/0/d/e/1FAIpQLSf_Bebxm5iYlYzB_PFAC_He-ejiFTCMLNcYdKZYsP15-Ivpdg/formResponse';
+    "https://docs.google.com/forms/u/1/d/e/1FAIpQLSfza5Oi6GhQfTJpfWCX_7AmDrZqJu6r2E0gPLc15Q9z9qy0YA/formResponse";
   const googleFields = {
-    Name: 'entry.929645681',
-    Phno: 'entry.1363093305',
-    Budget: 'entry.737135006',
+    Name: "entry.372664377",
+    Phno: "entry.39876554",
+    Budget: "entry.597738789",
   };
 
   const handleChange = (e) => {
@@ -21,17 +25,31 @@ const ContactUs = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus({ loading: true, message: '', type: '' });
+    setStatus({ loading: true, message: "", type: "" });
 
     const formBody = new URLSearchParams();
-    Object.entries(formData).forEach(([key, value]) => formBody.append(googleFields[key], value));
+    Object.entries(formData).forEach(([key, value]) =>
+      formBody.append(googleFields[key], value)
+    );
 
     try {
-      await fetch(googleFormActionURL, { method: 'POST', mode: 'no-cors', body: formBody });
-      setStatus({ loading: false, message: 'Message sent successfully!', type: 'success' });
-      setFormData({ Name: '', Phno: '', Budget: '' }); // Clear form after success
+      await fetch(googleFormActionURL, {
+        method: "POST",
+        mode: "no-cors",
+        body: formBody,
+      });
+      setStatus({
+        loading: false,
+        message: "Message sent successfully!",
+        type: "success",
+      });
+      setFormData({ Name: "", Phno: "", Budget: "" }); // Clear form after success
     } catch {
-      setStatus({ loading: false, message: 'Failed to send message. Please try again.', type: 'error' });
+      setStatus({
+        loading: false,
+        message: "Failed to send message. Please try again.",
+        type: "error",
+      });
     }
   };
 
@@ -40,15 +58,29 @@ const ContactUs = () => {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row rounded-lg shadow-lg overflow-hidden bg-[#5cc599]">
         {/* Left Side - Contact Form */}
         <div className="w-full md:w-1/2 p-8">
-          <h1 className="text-4xl font-semibold text-[#333] mb-4">Get in Touch</h1>
+          <h1 className="text-4xl font-semibold text-[#333] mb-4">
+            Get in Touch
+          </h1>
           {status.message && (
-            <p className={`mb-4 ${status.type === 'success' ? 'text-blue-500' : 'text-red-500'}`}>{status.message}</p>
+            <p
+              className={`mb-4 ${
+                status.type === "success" ? "text-blue-500" : "text-red-500"
+              }`}
+            >
+              {status.message}
+            </p>
           )}
 
-          <form className="space-y-4" onSubmit={handleSubmit}>
+          <form
+            className="space-y-4"
+            onSubmit={handleSubmit}
+          >
             {/* Name Field */}
             <div>
-              <label className="block text-[#333] text-lg mb-1" htmlFor="name">
+              <label
+                className="block text-[#333] text-lg mb-1"
+                htmlFor="name"
+              >
                 Name
               </label>
               <input
@@ -64,7 +96,10 @@ const ContactUs = () => {
 
             {/* Phone Number Field */}
             <div>
-              <label className="block text-[#333] text-lg mb-1" htmlFor="phone">
+              <label
+                className="block text-[#333] text-lg mb-1"
+                htmlFor="phone"
+              >
                 Phone Number
               </label>
               <input
@@ -80,7 +115,10 @@ const ContactUs = () => {
 
             {/* Investment Budget Dropdown */}
             <div>
-              <label className="block text-[#333] text-lg mb-1" htmlFor="budget">
+              <label
+                className="block text-[#333] text-lg mb-1"
+                htmlFor="budget"
+              >
                 Investment Budget
               </label>
               <select
@@ -90,7 +128,10 @@ const ContactUs = () => {
                 className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0077b6] transition duration-300"
                 required
               >
-                <option value="" disabled>
+                <option
+                  value=""
+                  disabled
+                >
                   Select your budget
                 </option>
                 <option value="Under 50 lakh">Under 50 lakh</option>
@@ -105,7 +146,7 @@ const ContactUs = () => {
               className="w-full bg-[#0077b6] text-white py-2 rounded-md font-semibold hover:bg-[#005f87] transition duration-300"
               disabled={status.loading}
             >
-              {status.loading ? 'Sending...' : 'Send Message'}
+              {status.loading ? "Sending..." : "Send Message"}
             </button>
           </form>
         </div>
@@ -113,7 +154,11 @@ const ContactUs = () => {
         {/* Right Side - Image */}
         <div className="w-full md:w-1/2 flex justify-center items-center">
           <div className="relative w-full md:sh-64 md:h-full">
-            <img src={contact} alt="Contact Us" className="w-full h-full object-cover rounded-l-lg" />
+            <img
+              src={contact}
+              alt="Contact Us"
+              className="w-full h-full object-cover rounded-l-lg"
+            />
             <div className="absolute inset-0 bg-black bg-opacity-30 rounded-l-lg"></div>
           </div>
         </div>
